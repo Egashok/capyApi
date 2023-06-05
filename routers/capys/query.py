@@ -22,8 +22,6 @@ def all_capys(db: Session = Depends(dependencies.get_db)):
     capys = services.capys.get_capys(db)
     return capys
 
-
-
 @router.get('/capys/random')
 def get_capy_by_id(
         db: Session = Depends(dependencies.get_db)
@@ -31,8 +29,6 @@ def get_capy_by_id(
     capys = services.capys.get_capys(db)
     capy_id=random.randint(1,len(capys))
     return services.capys.get_capy_by_id(db, capy_id)
-
-
 
 @router.get('/capys/{capy_id}', response_model=schemas.Capy)
 def get_capy_by_id(
@@ -62,7 +58,6 @@ def delete_capy(
 ):
     return services.capys.delete_capy(db, capy_id)
 
-
 @router.put('/capys/{capy_id}')
 def update_capy(
         capy_id: int,
@@ -70,4 +65,3 @@ def update_capy(
         db: Session = Depends(dependencies.get_db)
 ):
     return services.capys.update_capy(db, capy_id, capy)
-

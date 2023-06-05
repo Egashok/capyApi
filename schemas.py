@@ -12,4 +12,3 @@ class Capy(CapyBase):
     id: int
     class Config:
         orm_mode = True
-

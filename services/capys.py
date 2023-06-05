@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 import models
 import schemas
 
-def add_capy(db: Session, capy: schemas.CapyToCreate):
+def add_capy(db: Session, capy: schemas.CapyToCreate)->models.CapyInDB:
     db_capy = models.CapyInDB(
         name=capy.name,
         description=capy.description,
@@ -15,22 +15,22 @@ def add_capy(db: Session, capy: schemas.CapyToCreate):
     db.refresh(db_capy)
     return db_capy
 
-def get_capy_by_id(db: Session, capy_id: int):
+def get_capy_by_id(db: Session, capy_id: int)->models.CapyInDB:
     capy = db.query(models.CapyInDB).filter(
         models.CapyInDB.id == capy_id
     ).first()
     return capy
 
-def get_img_by_id(db: Session, capy_id: int):
+def get_img_by_id(db: Session, capy_id: int)->models.CapyInDB.photo:
     capy = db.query(models.CapyInDB).filter(
         models.CapyInDB.id == capy_id
     ).first()
     return capy.photo
 
-def get_capys(db: Session):
+def get_capys(db: Session)->models.CapyInDB:
     return db.query(models.CapyInDB).all()
 
-def update_capy(db: Session, capy_id: int, new_capy: schemas.CapyToCreate):
+def update_capy(db: Session, capy_id: int, new_capy: schemas.CapyToCreate)->models.CapyInDB:
     capy = get_capy_by_id(db, capy_id)
     capy.name = new_capy.name
     capy.description=new_capy.description
@@ -45,7 +45,8 @@ def delete_capy(db: Session, capy_id: int):
     ).first()
     db.delete(capy)
     db.commit()
-    return 'ok'
+    return None 
+
 
 
 

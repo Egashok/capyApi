@@ -1,6 +1,6 @@
 import uvicorn
-from routers.capys import query
 
+from routers.capys import query
 from fastapi import FastAPI
 
 app = FastAPI(

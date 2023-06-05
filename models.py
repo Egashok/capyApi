@@ -1,7 +1,6 @@
 from sqlalchemy import Column, Integer, String
 from database import Base
 
-
 class CapyInDB(Base):
     __tablename__ = 'capys'
 
@@ -9,4 +8,3 @@ class CapyInDB(Base):
     name = Column(String,index=True)
     description = Column(String, index=True)
     photo = Column(String,index=True)
-
