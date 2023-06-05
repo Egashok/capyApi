@@ -1,4 +1,3 @@
-![Icon FastAPI](./.github/images/logo-fastapi.png) 
 
 # 🎯 CapyAPI - Simple project using python FastAPI
 
