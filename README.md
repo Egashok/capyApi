@@ -53,6 +53,7 @@ To reproduce this project follow the steps below:
 
   ```sh
     http://127.0.0.1:8000/
+  ```
     ![image](https://github.com/Egashok/capyApi/assets/55044715/0ea6993d-7ca6-4240-ab94-bf5cfbbe31e8)
 
 
